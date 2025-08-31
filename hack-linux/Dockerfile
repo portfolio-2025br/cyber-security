@@ -14,8 +14,34 @@
 # the Free Software Foundation, as expressed in version 2, seen at
 # https://www.gnu.org/licenses/gpl-2.0.html
 # ################################################################################
-# Inform Git which files and folders to ignore (based on a template)
+# Dockerfile usado para explorar a CVE-2025-32463
 # More info at https://github.com/portfolio-2025br/cyber-security
 
-# Minha pasta de trabalho
-local
+FROM ubuntu:24.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Prepare the environment
+RUN apt-get update -y \
+    && apt-get install -y --no-install-recommends \
+        gcc=* libc6-dev=* ca-certificates=* libnss3-tools=* \
+        sudo=1.9.15p5-3ubuntu5 \
+# Clean up
+    && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
+
+# ==================================================================
+# Setup
+# ------------------------------------------------------------------
+ARG GID=1001
+ARG UID=1001
+ARG USERNAME="normalzinho"
+RUN groupadd -g "${GID}" -o "${USERNAME}" \
+    && useradd -m -u "${UID}" -g "${GID}" -o -s /bin/bash -p "$(openssl passwd -1 123456)" -l "${USERNAME}"
+USER $USERNAME
+
+# Copiar a ferramenta que explora falha para a minha imagem
+COPY local/abra-cadabra.sh /home/normalzinho/abra-cadabra.sh
+
+HEALTHCHECK NONE
