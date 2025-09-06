@@ -13,7 +13,7 @@ para cada site ou aplicativo que usamos. Portanto, conhecer os riscos de vazamen
 essencial para todos nós.
 
 Embora usar gerenciadores de senha seja uma forma de mitigar os desafios de gerar senhas fortes e memorizá-las, os
-gerenciadores de senhas são, eles próprios, vulneráveis a ataques cibernéticos, coisa que sua memório AINDA não é. Mesmo
+gerenciadores de senhas são, eles próprios, vulneráveis a ataques cibernéticos, coisa que sua memória AINDA não é. Mesmo
 que o risco seja reduzido, o próprio gerenciador de senhas é um alvo de interesse para os crackers. E se a senha mestra
 do gerenciador de senhas vazar é **fim de jogo**.
 
@@ -47,7 +47,7 @@ $ ls -lh /dados/
 total 92G
 -rw-r--r-- 1 vscode vscode 92G Apr 16  2021 rockyou2021.txt
 
-# Quase 8,5 bilhoes de linhas
+# Quase 8,5 bilhões de linhas
 $ wc -l /dados/rockyou2021.txt
 8459060239 /dados/rockyou2021.txt
 ```
@@ -84,7 +84,7 @@ gayo.claudio
 ```
 
 Além do óbvio uso do nome mais o ano de nascimento, há uma série de senhas fracas, passíveis de serem "adivinhadas" por
-ex-compainheiros, colegas de trabalho, entre outros.
+ex-companheiros, colegas de trabalho, entre outros.
 
 Por fim, peguemos como exemplo `gayo.claudio`. É interessante, isto parece ser exatamente o nome de alguém. Vamos
 pesquisar então:
@@ -128,7 +128,8 @@ Resumo da avaliação feita pelo KrakenLabs postada em uma rede social.
 
 ### [2] Estatística para Quebrar Senhas
 
-Vários algorítimos famosos podem ser quebrados por força bruta se o atacante possuir poder de processamento suficiente.
-E por suficiente estamos pensando em algo que empresas e governos podem comprar (ou alugar).
+Vários algorítimos famosos podem ser quebrados por força bruta (ou busca exaustiva de chave que consiste na verificação
+sistemática de todas as possíveis chaves e senhas até que as corretas sejam encontradas) se o atacante possuir poder de
+processamento suficiente. E por suficiente estamos pensando em algo que empresas e governos podem comprar (ou alugar).
 
 Leia mais em <https://www.praetorian.com/blog/statistics-will-crack-your-password-mask-structure/>.
